@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusForge - Minimalist Pomodoro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+      
+      /* Smooth transitions for all theme-related properties */
+      * {
+        transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    fill 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .timer-digit {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .progress-ring {
+        transition: stroke-dashoffset 0.35s ease-out;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+      }
+
+      /* Hide native number input arrows */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+      /* Basic Animation Utilities */
+      @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes slide-in-from-top { from { transform: translateY(-1rem); } to { transform: translateY(0); } }
+      @keyframes slide-in-from-bottom { from { transform: translateY(1rem); } to { transform: translateY(0); } }
+      @keyframes zoom-in { from { transform: scale(0.95); } to { transform: scale(1); } }
+      
+      .animate-in { animation-fill-mode: both; }
+      .fade-in { animation-name: fade-in; }
+      .slide-in-from-top-4 { animation-name: slide-in-from-top; }
+      .slide-in-from-bottom-2 { animation-name: slide-in-from-bottom; }
+      .zoom-in-95 { animation-name: zoom-in; }
+      .duration-500 { animation-duration: 500ms; }
+      .duration-700 { animation-duration: 700ms; }
+      .duration-1000 { animation-duration: 1000ms; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen selection:bg-rose-100 selection:text-rose-900 dark:selection:bg-rose-900/40 dark:selection:text-rose-100">
+    <div id="root"></div>
+</body>
+</html>
